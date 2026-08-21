@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>개발자 대시보드 · 담보물배분표</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">S</span>
+      <span><strong>성현회계법인</strong><small>Developer Cost Observatory</small></span>
+    </a>
+    <nav class="nav">
+      <a href="/">유저 화면</a>
+      <a href="#developerDashboard">비용 추적</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Developer Dashboard</p>
+        <h1>LLM·Embedding 비용을<br />단계별로 추적합니다.</h1>
+        <p class="subcopy">문서검사 실패와 중간단계 실패도 완료 시점까지의 경과시간, 토큰, 예상 USD 비용을 노출합니다.</p>
+      </div>
+      <div class="hero-card glass">
+        <div class="hero-meter"><span>Total USD</span><strong id="devHeroCost">$0.000000</strong></div>
+        <div class="hero-stat-grid">
+          <div><small>LLM 호출</small><strong id="devHeroCalls">0</strong></div>
+          <div><small>토큰 합계</small><strong id="devHeroTokens">0</strong></div>
+          <div><small>작업 수</small><strong id="devHeroJobs">0</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="developerDashboard" class="dashboard panel">
+      <div class="panel-head horizontal">
+        <div>
+          <span class="panel-kicker">Cost Ledger</span>
+          <h2>개발자용 비용·토큰 대시보드</h2>
+          <p>프레임워크 LLM, RAG 답변 LLM, RAG 임베딩 사용량을 분리해 표시합니다.</p>
+        </div>
+        <button id="refreshDeveloperDashboard" class="button ghost">새로고침</button>
+      </div>
+      <div class="metric-grid">
+        <article><small>전체 작업</small><strong id="metricDevJobs">0</strong></article>
+        <article><small>LLM 호출</small><strong id="metricDevCalls">0</strong></article>
+        <article><small>토큰 합계</small><strong id="metricDevTokens">0</strong></article>
+        <article><small>예상 비용</small><strong id="metricDevCost">$0.000000</strong></article>
+      </div>
+      <div class="dashboard-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>요청시간</th>
+              <th>업로드 파일</th>
+              <th>상태/경과</th>
+              <th>프레임워크 LLM</th>
+              <th>RAG LLM</th>
+              <th>Embedding</th>
+              <th>산출물 위치</th>
+            </tr>
+          </thead>
+          <tbody id="developerRows"><tr><td colspan="7">아직 작업이 없습니다.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/developer.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>담보물배분표 AI 자동작성</title>
+  <meta name="description" content="등기부등본, 감정평가서, 저당목록을 분석해 담보물배분표 Excel을 자동 생성합니다." />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div class="desktop-view">
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark">S</span>
+      <span>
+        <strong>성현회계법인</strong>
+        <small>Collateral Intelligence Suite</small>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#automation">자동화</a>
+      <a href="#report">결과 리포트</a>
+      <a href="#dashboard">작업현황</a>
+      <a href="/developer">개발자</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Client-ready AI Document Automation</p>
+        <h1>복잡한 담보 문서를<br />하나의 Excel 결과물로.</h1>
+        <p class="subcopy">
+          등기부등본, 감정평가서, 공장저당목록을 업로드하면 문서 인식부터 병합·대조·검산·Excel 작성까지 한 화면에서 진행됩니다.
+        </p>
+        <div class="hero-actions">
+          <a href="#automation" class="button primary">문서 업로드 시작</a>
+          <a href="#dashboard" class="button ghost">작업 현황 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="automation" class="workspace">
+      <div class="left-rail">
+        <section class="panel upload-panel">
+          <div class="panel-head">
+            <span class="panel-kicker">Step 01</span>
+            <h2>문서 업로드</h2>
+            <p>세 문서가 모두 준비되면 자동화 실행 버튼이 활성화됩니다.</p>
+          </div>
+
+          <div class="upload-stack">
+            <article class="dropzone" data-kind="registry">
+              <input id="registryInput" type="file" accept="application/pdf,.pdf" hidden />
+              <div class="drop-main">
+                <span class="file-badge">등</span>
+                <div>
+                  <h3>등기부등본</h3>
+                  <p>표제부·을구 권리 정보 분석</p>
+                </div>
+              </div>
+              <button class="text-button" type="button">파일찾기</button>
+              <strong class="file-status" id="registryName">PDF를 선택해 주세요</strong>
+            </article>
+
+            <article class="dropzone" data-kind="appraisal">
+              <input id="appraisalInput" type="file" accept="application/pdf,.pdf" hidden />
+              <div class="drop-main">
+                <span class="file-badge">감</span>
+                <div>
+                  <h3>감정평가서</h3>
+                  <p>토지·건물·기계기구 평가 명세 분석</p>
+                </div>
+              </div>
+              <button class="text-button" type="button">파일찾기</button>
+              <strong class="file-status" id="appraisalName">PDF를 선택해 주세요</strong>
+            </article>
+
+            <article class="dropzone" data-kind="mortgageList">
+              <input id="mortgageListInput" type="file" accept="application/pdf,.pdf" hidden />
+              <div class="drop-main">
+                <span class="file-badge">목</span>
+                <div>
+                  <h3>저당목록</h3>
+                  <p>공장저당법 목록번호별 기계기구 분석</p>
+                </div>
+              </div>
+              <button class="text-button" type="button">파일찾기</button>
+              <strong class="file-status" id="mortgageListName">PDF를 선택해 주세요</strong>
+            </article>
+          </div>
+
+          <button id="startButton" class="button primary wide" disabled>Excel 자동화 시작</button>
+        </section>
+
+        <section id="progressPanel" class="panel progress-panel">
+          <div class="panel-head horizontal">
+            <div>
+              <span class="panel-kicker">Step 02</span>
+              <h2>진행 상황</h2>
+            </div>
+            <span id="elapsedPill" class="pill">0초</span>
+          </div>
+
+          <div class="progress-summary">
+            <strong id="jobSummary">작업 대기 중</strong>
+            <span id="progressLabel">0%</span>
+          </div>
+          <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+          <ol id="stepList" class="timeline"></ol>
+        </section>
+      </div>
+
+      <aside id="insight" class="right-rail">
+        <section class="panel insight-panel">
+          <div class="panel-head">
+            <span class="panel-kicker">RAG Chat</span>
+            <h2>산출물 기반 질의응답</h2>
+            <p>전체 중간산출물과 원본성 parser JSON을 검색해 Markdown 형식으로 출처 기반 답변을 제공합니다.</p>
+          </div>
+
+          <button id="ragButton" class="button dark wide" disabled>RAG 채팅 인덱스 준비</button>
+
+          <div class="chat-box">
+            <div id="chatMessages" class="chat-messages">
+              <div class="message assistant">
+                <strong>분석 어시스턴트</strong>
+                <p>작업 완료 후 “실행내용 기반 채팅시작”을 누르면 산출물 기반으로 질문할 수 있습니다.</p>
+              </div>
+            </div>
+            <form id="chatForm" class="chat-form">
+              <input id="chatInput" type="text" placeholder="예: 최종 가치평가액 산정 근거를 알려줘" disabled />
+              <button class="button primary" type="submit" disabled>질문</button>
+            </form>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <section id="report" class="report-wide panel">
+      <div class="panel-head horizontal">
+        <div>
+          <span class="panel-kicker">AI Report</span>
+          <h2>실행내용 기반 리포트</h2>
+          <p>작업 완료 후 workbook_plan 기반 첫 결과 보고서를 크게 표시합니다.</p>
+        </div>
+      </div>
+      <div class="report-card report-card-large" id="reportCard">
+        <span class="orb"></span>
+        <h3>아직 분석 대기 중입니다</h3>
+        <div class="markdown-body">Excel 생성이 완료되면 이 영역에 첫 결과 보고서가 표시됩니다.</div>
+      </div>
+    </section>
+
+
+    <section id="dashboard" class="dashboard panel">
+      <div class="panel-head horizontal">
+        <div>
+          <span class="panel-kicker">Dashboard</span>
+          <h2>유저용 작업 현황</h2>
+          <p>요청 시간과 업로드 파일 기준으로 처리 상태만 확인합니다. 토큰과 비용은 개발자 페이지에서만 제공합니다.</p>
+        </div>
+        <button id="refreshDashboard" class="button ghost">새로고침</button>
+      </div>
+      <div class="metric-grid">
+        <article><small>전체 작업</small><strong id="metricJobs">0</strong></article>
+        <article><small>완료</small><strong id="metricCompleted">0</strong></article>
+        <article><small>진행 중</small><strong id="metricRunning">0</strong></article>
+        <article><small>실패</small><strong id="metricFailed">0</strong></article>
+      </div>
+      <div class="dashboard-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>요청시간</th>
+              <th>업로드 파일</th>
+              <th>상태</th>
+              <th>진행률</th>
+              <th>현재 단계</th>
+              <th>결과</th>
+            </tr>
+          </thead>
+          <tbody id="dashboardRows">
+            <tr><td colspan="6">아직 작업이 없습니다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <section class="responsive-view tablet-view" data-layout="tablet" aria-label="아이패드 화면">
+    <header class="responsive-header">
+      <a class="brand" href="#"><span class="brand-mark">S</span><span><strong>성현회계법인</strong><small>Collateral Intelligence Suite</small></span></a>
+      <button class="responsive-menu-button" type="button" aria-expanded="false">☰</button>
+      <nav class="responsive-menu"><a href="#tablet-automation">자동화</a><a href="#tablet-report">결과 리포트</a><a href="#tablet-dashboard">작업 현황</a><a href="/developer">개발자</a></nav>
+    </header>
+    <main class="responsive-main">
+      <section class="responsive-hero"><span class="panel-kicker">AI Document Automation</span><h1>담보 문서를<br />하나의 결과물로</h1><p>세 가지 PDF를 업로드하면 분석부터 Excel 생성까지 진행합니다.</p></section>
+      <section id="tablet-automation" class="responsive-input-grid">
+        <section class="responsive-card upload-card"><div class="responsive-card-head"><span class="panel-kicker">Step 01</span><h2>문서 업로드</h2><p>PDF 3종을 선택하세요.</p></div><div class="responsive-upload-list"><label>등기부등본<input class="responsive-file" data-kind="registry" type="file" accept="application/pdf,.pdf" /><small data-file-name="registry">파일을 선택하세요</small></label><label>감정평가서<input class="responsive-file" data-kind="appraisal" type="file" accept="application/pdf,.pdf" /><small data-file-name="appraisal">파일을 선택하세요</small></label><label>저당목록<input class="responsive-file" data-kind="mortgageList" type="file" accept="application/pdf,.pdf" /><small data-file-name="mortgageList">파일을 선택하세요</small></label></div><button class="button primary wide responsive-start" type="button" disabled>Excel 자동화 시작</button></section>
+        <section class="responsive-card progress-card"><div class="responsive-card-head"><span class="panel-kicker">Step 02</span><h2>진행 상황</h2><strong class="responsive-percent">0%</strong></div><p class="responsive-summary">작업 대기 중</p><div class="progress-track"><div class="progress-fill responsive-progress-fill"></div></div><ol class="responsive-steps"></ol></section>
+      </section>
+      <section class="responsive-card chat-card"><div class="responsive-card-head"><span class="panel-kicker">RAG Chat</span><h2>산출물 기반 질의응답</h2></div><button class="button dark wide responsive-rag" type="button" disabled>RAG 채팅 인덱스 준비</button><div class="responsive-messages"></div><form class="responsive-chat-form"><input type="text" placeholder="질문을 입력하세요" disabled /><button class="button primary" type="submit" disabled>질문</button></form></section>
+      <section id="tablet-report" class="responsive-card report-card"><div class="responsive-card-head"><span class="panel-kicker">AI Report</span><h2>실행내용 기반 리포트</h2></div><div class="responsive-report">아직 분석 대기 중입니다.</div></section>
+      <section id="tablet-dashboard" class="responsive-card dashboard-card"><div class="responsive-card-head"><span class="panel-kicker">Dashboard</span><h2>작업 현황</h2></div><div class="responsive-metrics"><span>전체 <b data-metric="total">0</b></span><span>완료 <b data-metric="completed">0</b></span><span>진행 <b data-metric="running">0</b></span><span>실패 <b data-metric="failed">0</b></span></div><div class="responsive-job-list"></div></section>
+    </main>
+  </section>
+
+  <section class="responsive-view mobile-view" data-layout="mobile" aria-label="모바일 화면">
+    <header class="responsive-header">
+      <a class="brand" href="#"><span class="brand-mark">S</span><span><strong>성현회계법인</strong><small>담보물배분표 AI</small></span></a>
+      <button class="responsive-menu-button" type="button" aria-expanded="false">☰</button>
+      <nav class="responsive-menu"><a href="#mobile-automation">자동화</a><a href="#mobile-report">결과 리포트</a><a href="#mobile-dashboard">작업 현황</a><a href="/developer">개발자</a></nav>
+    </header>
+    <main class="responsive-main">
+      <section class="responsive-hero"><span class="panel-kicker">AI Automation</span><h1>담보 문서<br />자동작성</h1><p>PDF 3종을 업로드해 Excel을 생성합니다.</p></section>
+      <section id="mobile-automation" class="responsive-input-grid">
+        <section class="responsive-card upload-card"><div class="responsive-card-head"><span class="panel-kicker">업로드</span><h2>문서 업로드</h2></div><div class="responsive-upload-list"><label>등기부등본<input class="responsive-file" data-kind="registry" type="file" accept="application/pdf,.pdf" /><small data-file-name="registry">선택</small></label><label>감정평가서<input class="responsive-file" data-kind="appraisal" type="file" accept="application/pdf,.pdf" /><small data-file-name="appraisal">선택</small></label><label>저당목록<input class="responsive-file" data-kind="mortgageList" type="file" accept="application/pdf,.pdf" /><small data-file-name="mortgageList">선택</small></label></div><button class="button primary wide responsive-start" type="button" disabled>자동화 시작</button></section>
+        <section class="responsive-card progress-card"><div class="responsive-card-head"><span class="panel-kicker">상태</span><h2>진행 상황</h2><strong class="responsive-percent">0%</strong></div><p class="responsive-summary">대기 중</p><div class="progress-track"><div class="progress-fill responsive-progress-fill"></div></div><ol class="responsive-steps"></ol></section>
+      </section>
+      <section class="responsive-card chat-card"><div class="responsive-card-head"><span class="panel-kicker">채팅</span><h2>분석 어시스턴트</h2></div><button class="button dark wide responsive-rag" type="button" disabled>채팅 준비</button><div class="responsive-messages"></div><form class="responsive-chat-form"><input type="text" placeholder="질문을 입력하세요" disabled /><button class="button primary" type="submit" disabled>전송</button></form></section>
+      <section id="mobile-report" class="responsive-card report-card"><div class="responsive-card-head"><span class="panel-kicker">리포트</span><h2>결과 리포트</h2></div><div class="responsive-report">아직 분석 대기 중입니다.</div></section>
+      <section id="mobile-dashboard" class="responsive-card dashboard-card"><div class="responsive-card-head"><span class="panel-kicker">현황</span><h2>작업 현황</h2></div><div class="responsive-metrics"><span>전체 <b data-metric="total">0</b></span><span>완료 <b data-metric="completed">0</b></span><span>진행 <b data-metric="running">0</b></span><span>실패 <b data-metric="failed">0</b></span></div><div class="responsive-job-list"></div></section>
+    </main>
+  </section>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <template id="stepTemplate">
+    <li class="timeline-item">
+      <span class="dot"></span>
+      <div>
+        <strong class="step-title"></strong>
+        <p class="step-detail"></p>
+      </div>
+    </li>
+  </template>
+
+  <script src="/static/app.js"></script>
+  <script src="/static/responsive.js"></script>
+</body>
+</html>
