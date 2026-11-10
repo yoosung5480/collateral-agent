@@ -64,30 +64,30 @@ gpt_sol = ChatOpenAI(
 
 
 
-print("# =================================================== #")
-print("                 감정평가서 분석")
-input_path = Path("datas/감정평가서 휴먼중공업.pdf")
-output_root = Path("output/appraisal_luna_ver")
-parser = AppraisalParser(section_llm=gpt_mini, extraction_llm=gpt_sol)
+# print("# =================================================== #")
+# print("                 감정평가서 분석")
+# input_path = Path("datas/감정평가서 휴먼중공업.pdf")
+# output_root = Path("output/appraisal_luna_ver")
+# parser = AppraisalParser(section_llm=gpt_mini, extraction_llm=gpt_sol)
 
-start_time = time.perf_counter()
-appraisal_result = parser.invoke(source_path=input_path, output_root=output_root)
-end_time = time.perf_counter()
-print(f"실행 시간: {end_time - start_time:.3f}초")
-print("# =================================================== #")
+# start_time = time.perf_counter()
+# appraisal_result = parser.invoke(source_path=input_path, output_root=output_root)
+# end_time = time.perf_counter()
+# print(f"실행 시간: {end_time - start_time:.3f}초")
+# print("# =================================================== #")
 
 
-print("# =================================================== #")
-print("                 저당목록 분석")
-# CURRENT_ROOT = Path("/Users/yujin/Desktop/성현회계법인/담보물배분표/mortgage_list")
-# PROJECT_ROOT = Path("/Users/yujin/Desktop/성현회계법인/담보물배분표")
-INPUT_PATH = Path( "datas/공장저당법목록.pdf")
-OUTPUT_ROOT = Path( "output/mortgage_list_luna_ver")
-FINAL_JSON_PATH = OUTPUT_ROOT / "공장저당법목록.json"
+# print("# =================================================== #")
+# print("                 저당목록 분석")
+# # CURRENT_ROOT = Path("/Users/yujin/Desktop/성현회계법인/담보물배분표/mortgage_list")
+# # PROJECT_ROOT = Path("/Users/yujin/Desktop/성현회계법인/담보물배분표")
+# INPUT_PATH = Path( "datas/공장저당법목록.pdf")
+# OUTPUT_ROOT = Path( "output/mortgage_list_luna_ver")
+# FINAL_JSON_PATH = OUTPUT_ROOT / "공장저당법목록.json"
 
-start_time = time.perf_counter()
-parser = MortgageParser(section_llm=gpt_mini, extraction_llm=gpt_sol)
-mortgage_list_result = parser.invoke(INPUT_PATH, OUTPUT_ROOT, json_path=FINAL_JSON_PATH)
-end_time = time.perf_counter()
-print(f"실행 시간: {end_time - start_time:.3f}초")
-print("# =================================================== #")
+# start_time = time.perf_counter()
+# parser = MortgageParser(section_llm=gpt_mini, extraction_llm=gpt_sol)
+# mortgage_list_result = parser.invoke(INPUT_PATH, OUTPUT_ROOT, json_path=FINAL_JSON_PATH)
+# end_time = time.perf_counter()
+# print(f"실행 시간: {end_time - start_time:.3f}초")
+# print("# =================================================== #")
