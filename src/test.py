@@ -26,22 +26,22 @@ gpt_sol = ChatOpenAI(
         reasoning_effort="none"
     )
 
-# print("# =================================================== #")
-# print("                 등기부등본 분석")
-# registry_path = Path("datas/부동산등기부등본.pdf")
-# output_path = Path("output/registry_luna_ver")
-# raw_registry_parser = RawRegistryParser(llm=gpt_mini)
-# registry_parser = RegistryParser(llm=gpt_sol)
+print("# =================================================== #")
+print("                 등기부등본 분석")
+registry_path = Path("datas/부동산등기부등본.pdf")
+output_path = Path("output/registry_luna_ver")
+raw_registry_parser = RawRegistryParser(llm=gpt_mini)
+registry_parser = RegistryParser(llm=gpt_sol)
 
-# print()
-# print("전체 원본 파일에 대한 슬라이싱")
-# start_time = time.perf_counter()
-# split_results = raw_registry_parser.split_registry_sections(
-#     source_path=registry_path,
-#     output_path=output_path)
-# end_time = time.perf_counter()
-# print(f"실행 시간: {end_time - start_time:.3f}초")
-# print()
+print()
+print("전체 원본 파일에 대한 슬라이싱")
+start_time = time.perf_counter()
+split_results = raw_registry_parser.split_registry_sections(
+    source_path=registry_path,
+    output_path=output_path)
+end_time = time.perf_counter()
+print(f"실행 시간: {end_time - start_time:.3f}초")
+print()
 
 # results: list[dict[str, Any]] = []
 # for split in split_results:
