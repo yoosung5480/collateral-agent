@@ -25,7 +25,7 @@
 ├── web_service/                 # FastAPI 서버와 정적 웹 UI
 │   ├── server.py
 │   └── static/
-├── 담보물배분표_ver2/              # 핵심 담보물배분표 자동화 프레임워크
+├── src/              # 핵심 담보물배분표 자동화 프레임워크
 │   ├── main.py                  # CLI 배치 실행 진입점
 │   ├── excel.py                 # Excel 생성 로직
 │   ├── pipeline.py              # 문서 대조/검증 파이프라인
@@ -42,11 +42,11 @@
 
 로컬에만 존재해야 하는 폴더/파일:
 
-- `담보물배분표_ver2/.env`
-- `담보물배분표_ver2/datas/`
-- `담보물배분표_ver2/output*/`
-- `담보물배분표_ver2/output_sample/`
-- `담보물배분표_ver2/GT/`
+- `src/.env`
+- `src/datas/`
+- `src/output*/`
+- `src/output_sample/`
+- `src/GT/`
 - `web_service/runtime/`
 - 모든 PDF/JSON/XLSX 중간산출물
 
@@ -64,10 +64,10 @@ pip install -r requirements.txt
 ### 3.2 환경변수 설정
 
 ```bash
-cp 담보물배분표_ver2/.env.example 담보물배분표_ver2/.env
+cp src/.env.example src/.env
 ```
 
-`담보물배분표_ver2/.env`에 OpenAI API 키를 입력합니다.
+`src/.env`에 OpenAI API 키를 입력합니다.
 
 ```env
 OPENAI_API_KEY=sk-...
@@ -82,30 +82,30 @@ PDF_VALIDATION_MODEL_NAME=gpt-5.4-mini
 
 ### 3.3 입력 PDF 준비
 
-CLI 배치 실행은 `담보물배분표_ver2/main.py` 상단의 경로 상수를 사용합니다. 기본 위치는 다음과 같습니다.
+CLI 배치 실행은 `src/main.py` 상단의 경로 상수를 사용합니다. 기본 위치는 다음과 같습니다.
 
 ```text
-담보물배분표_ver2/datas/
+src/datas/
 ├── 건물_동구 초량동 1149-3 제4호.pdf
 ├── 1. 감정평가서_문화충전소_동구 초량동 1149-3.pdf
 └── 부산 동구 초량동 1149-3(목록포함).pdf
 ```
 
-다른 파일을 사용할 경우 `담보물배분표_ver2/main.py`의 `REGISTRY_PDF_PATH`, `APPRAISAL_PDF_PATH`, `MORTGAGE_LIST_PDF_PATH` 상수를 수정합니다.
+다른 파일을 사용할 경우 `src/main.py`의 `REGISTRY_PDF_PATH`, `APPRAISAL_PDF_PATH`, `MORTGAGE_LIST_PDF_PATH` 상수를 수정합니다.
 
 ## 4. 실행 방법
 
 ### 4.1 CLI 배치 실행
 
 ```bash
-cd 담보물배분표_ver2
+cd src
 python main.py
 ```
 
 성공 시 감정평가서 파일명 기반 폴더 아래에 최종 Excel과 단계별 산출물이 생성됩니다.
 
 ```text
-담보물배분표_ver2/{감정평가서 파일명}/
+src/{감정평가서 파일명}/
 ├── 담보물배분표.xlsx
 └── pipeline_artifacts/
 ```
@@ -181,16 +181,16 @@ rag_chat / web_service
 python -m py_compile \
   rag_chat/manager.py \
   web_service/server.py \
-  담보물배분표_ver2/main.py \
-  담보물배분표_ver2/pipeline.py \
-  담보물배분표_ver2/excel.py \
-  담보물배분표_ver2/validate_output.py
+  src/main.py \
+  src/pipeline.py \
+  src/excel.py \
+  src/validate_output.py
 ```
 
-최종 Excel 검증 스크립트는 GT 파일이 로컬에 있을 때 `담보물배분표_ver2` 폴더에서 실행합니다:
+최종 Excel 검증 스크립트는 GT 파일이 로컬에 있을 때 `src` 폴더에서 실행합니다:
 
 ```bash
-cd 담보물배분표_ver2
+cd src
 python validate_output.py {감정평가서 파일명}/담보물배분표.xlsx --gt GT/담보물배분표GT.xlsx
 ```
 
