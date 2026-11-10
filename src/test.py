@@ -77,8 +77,8 @@ print()
 # print("# =================================================== #")
 
 
-# print("# =================================================== #")
-# print("                 저당목록 분석")
+print("# =================================================== #")
+print("                 branch version2")
 # # CURRENT_ROOT = Path("/Users/yujin/Desktop/성현회계법인/담보물배분표/mortgage_list")
 # # PROJECT_ROOT = Path("/Users/yujin/Desktop/성현회계법인/담보물배분표")
 # INPUT_PATH = Path( "datas/공장저당법목록.pdf")

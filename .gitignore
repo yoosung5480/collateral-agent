@@ -86,19 +86,19 @@ AI 자동화 예시업체 자료/
 
 # Project-specific guardrails from Agent.md
 # Do not upload environment files, PDF/JSON client data, or intermediate artifacts
-# inside 담보물배분표_ver2.
-담보물배분표_ver2/**/.env
-담보물배분표_ver2/**/*.env
-담보물배분표_ver2/**/*.pdf
-담보물배분표_ver2/**/*.json
-담보물배분표_ver2/datas/
-담보물배분표_ver2/GT/
-담보물배분표_ver2/output/
-담보물배분표_ver2/output_sample/
-담보물배분표_ver2/cost_tracking_data/
-담보물배분표_ver2/*/pipeline_artifacts/
-담보물배분표_ver2/*/담보물배분표.xlsx
-담보물배분표_ver2/main.ipynb
+# inside src.
+src/**/.env
+src/**/*.env
+src/**/*.pdf
+src/**/*.json
+src/datas/
+src/GT/
+src/output/
+src/output_sample/
+src/cost_tracking_data/
+src/*/pipeline_artifacts/
+src/*/담보물배분표.xlsx
+src/main.ipynb
 
 # Archives and backups
 unused/
