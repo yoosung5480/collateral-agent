@@ -1,0 +1,529 @@
+{
+  "score": 91.67,
+  "category_scores": {
+    "collateral_structure": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "matched_credit": 4.0,
+      "target_total": 4.0,
+      "gt_total": 4.0,
+      "rationale": "4개 테이블 유형과 담보군 매칭은 모두 성립한다. real_estate_1/2, machine_collateral_1, machine_register_1이 각각 올바른 의미 단위로 분리되어 있고 병합/분리 오류는 없다. 다만 real_estate_1 내부 설명에 주소 오류가 있으나 이는 구조가 아니라 세부 속성 오류로 본다."
+    },
+    "lien_relations": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "matched_credit": 18.0,
+      "target_total": 18.0,
+      "gt_total": 18.0,
+      "rationale": "부동산 2개 담보군과 기계 담보군의 순위 1~6 근저당권이 모두 올바른 담보군에 연결되어 있고, 설정일자/채권자/순위/목록연계가 GT와 의미상 일치한다."
+    },
+    "financial_values": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "matched_credit": 17.0,
+      "target_total": 17.0,
+      "gt_total": 17.0,
+      "rationale": "담보군 가치평가액 3건, lien maximum_claim 6건 중 값이 있는 4건, 기계 금액 9건, 단가 9건 모두 의미상 일치한다. 단가가 파생객체형인 경우도 value 동일하고 수량×단가 관계가 타당하여 match 처리했다."
+    },
+    "property_details": {
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "matched_credit": 2.0,
+      "target_total": 4.0,
+      "gt_total": 4.0,
+      "rationale": "real_estate_2 토지는 정확하다. real_estate_1의 두 건물은 '12 외 5필지'를 6필지로 상세화한 것으로 같은 집합을 지칭한다고 보아 match다. 그러나 real_estate_1 토지는 함안군 칠서면이 GT인데 Target은 합천군 철서면으로 행정구역이 실제 변경되어 의미 모순이다. 또한 collateral_group description과 table summary에도 같은 잘못된 토지 주소가 반영되었다."
+    },
+    "machine_details": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "matched_credit": 9.0,
+      "target_total": 9.0,
+      "gt_total": 9.0,
+      "rationale": "기계 9행 모두 동일 기계를 가리킨다. Over head/Over Head, 경남HC/경남 HC 같은 표기 차이는 동일 의미다. 수량, 제조사, 제조년월, 금액, 단가는 모두 일치한다."
+    },
+    "list_memberships": {
+      "precision": 0.9444444444,
+      "recall": 0.9444444444,
+      "f1": 0.9444444444,
+      "matched_credit": 51.0,
+      "target_total": 54.0,
+      "gt_total": 54.0,
+      "rationale": "대부분 목록 포함관계는 일치한다. 다만 m1~m6의 제2012-720호 상태는 GT not_included인데 Target은 included로 잘못 생성했다. 나머지 48건은 모두 의미상 일치한다. '2012-399' vs '제2012-399호'는 동일 목록번호 표현으로 감점하지 않았다."
+    }
+  },
+  "counts": {
+    "match": 101,
+    "partial": 0,
+    "contradiction": 4,
+    "missing": 0,
+    "extra": 0,
+    "unknown": 0
+  },
+  "errors": [
+    {
+      "category": "property_details",
+      "object": "prop_re1_land_1",
+      "field": "address.city_county",
+      "gt": "함안군",
+      "target": "합천군",
+      "status": "contradiction",
+      "credit": 0.0,
+      "reason": "행정구역 시군이 실제로 바뀌어 동일 담보 토지로 보기 어렵다. 사용자 규칙상 함안군→합천군은 의미 모순이다.",
+      "root_cause_id": "rc_re1_land_addr"
+    },
+    {
+      "category": "property_details",
+      "object": "prop_re1_land_1",
+      "field": "address.town",
+      "gt": "칠서면",
+      "target": "철서면",
+      "status": "contradiction",
+      "credit": 0.0,
+      "reason": "읍면명이 실제로 변경되어 동일 소재지 표현의 단순 표기차가 아니라 다른 주소가 되었다.",
+      "root_cause_id": "rc_re1_land_addr"
+    },
+    {
+      "category": "list_memberships",
+      "object": "m1",
+      "field": "list_no=2012-720.state",
+      "gt": "not_included",
+      "target": "included",
+      "status": "contradiction",
+      "credit": 0.0,
+      "reason": "GT에서는 m1이 제2012-720호 목록에 포함되지 않는데 Target은 포함으로 표기하여 목록관계가 잘못되었다.",
+      "root_cause_id": "rc_720_overmark"
+    },
+    {
+      "category": "list_memberships",
+      "object": "m2",
+      "field": "list_no=2012-720.state",
+      "gt": "not_included",
+      "target": "included",
+      "status": "contradiction",
+      "credit": 0.0,
+      "reason": "GT에서는 m2가 제2012-720호 목록에 포함되지 않는데 Target은 포함으로 표기했다.",
+      "root_cause_id": "rc_720_overmark"
+    },
+    {
+      "category": "list_memberships",
+      "object": "m3",
+      "field": "list_no=2012-720.state",
+      "gt": "not_included",
+      "target": "included",
+      "status": "contradiction",
+      "credit": 0.0,
+      "reason": "GT에서는 m3가 제2012-720호 목록에 포함되지 않는데 Target은 포함으로 표기했다.",
+      "root_cause_id": "rc_720_overmark"
+    },
+    {
+      "category": "list_memberships",
+      "object": "m4",
+      "field": "list_no=2012-720.state",
+      "gt": "not_included",
+      "target": "included",
+      "status": "contradiction",
+      "credit": 0.0,
+      "reason": "GT에서는 m4가 제2012-720호 목록에 포함되지 않는데 Target은 포함으로 표기했다.",
+      "root_cause_id": "rc_720_overmark"
+    },
+    {
+      "category": "list_memberships",
+      "object": "m5",
+      "field": "list_no=2012-720.state",
+      "gt": "not_included",
+      "target": "included",
+      "status": "contradiction",
+      "credit": 0.0,
+      "reason": "GT에서는 m5가 제2012-720호 목록에 포함되지 않는데 Target은 포함으로 표기했다.",
+      "root_cause_id": "rc_720_overmark"
+    },
+    {
+      "category": "list_memberships",
+      "object": "m6",
+      "field": "list_no=2012-720.state",
+      "gt": "not_included",
+      "target": "included",
+      "status": "contradiction",
+      "credit": 0.0,
+      "reason": "GT에서는 m6가 제2012-720호 목록에 포함되지 않는데 Target은 포함으로 표기했다.",
+      "root_cause_id": "rc_720_overmark"
+    }
+  ],
+  "object_matches": [
+    {
+      "category": "collateral_structure",
+      "gt_id": "real_estate_1",
+      "target_id": "real_estate_1",
+      "confidence": 0.99,
+      "evidence": {
+        "table_type": "real_estate_collateral",
+        "title": "부동산 담보물 배분표 #1",
+        "group": "cg_re_1"
+      }
+    },
+    {
+      "category": "collateral_structure",
+      "gt_id": "real_estate_2",
+      "target_id": "real_estate_2",
+      "confidence": 0.99,
+      "evidence": {
+        "table_type": "real_estate_collateral",
+        "title": "부동산 담보물 배분표 #2",
+        "group": "cg_re_2"
+      }
+    },
+    {
+      "category": "collateral_structure",
+      "gt_id": "machine_collateral_1",
+      "target_id": "machine_collateral_1",
+      "confidence": 0.99,
+      "evidence": {
+        "table_type": "machine_collateral",
+        "group": "cg_m_1~cg_mc_1",
+        "valuation": 179890000
+      }
+    },
+    {
+      "category": "collateral_structure",
+      "gt_id": "machine_register_1",
+      "target_id": "machine_register_1",
+      "confidence": 0.99,
+      "evidence": {
+        "table_type": "machine_register",
+        "machine_count": 9,
+        "membership_count": 54
+      }
+    },
+    {
+      "category": "property_details",
+      "gt_id": "prop_re1_land_1",
+      "target_id": "prop_re1_land_1",
+      "confidence": 0.88,
+      "evidence": {
+        "property_type": "land",
+        "lot_number": "12",
+        "land_category": "공장용지",
+        "area_m2": 10934
+      }
+    },
+    {
+      "category": "property_details",
+      "gt_id": "prop_re1_bld_1",
+      "target_id": "prop_re1_bld_1",
+      "confidence": 0.96,
+      "evidence": {
+        "same_building": "제에이동호",
+        "lot_set_equivalent": true
+      }
+    },
+    {
+      "category": "property_details",
+      "gt_id": "prop_re1_bld_2",
+      "target_id": "prop_re1_bld_2",
+      "confidence": 0.95,
+      "evidence": {
+        "same_building": "제비동호~제비이동호",
+        "lot_set_equivalent": true
+      }
+    },
+    {
+      "category": "property_details",
+      "gt_id": "prop_re2_land_1",
+      "target_id": "prop_re2_land_1",
+      "confidence": 0.99,
+      "evidence": {
+        "property_type": "land",
+        "address": "경상남도 함안군 칠서면 계내리 21-1"
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m1",
+      "target_id": "m1",
+      "confidence": 0.98,
+      "evidence": {
+        "name_equivalent": true,
+        "maker_equivalent": true
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m2",
+      "target_id": "m2",
+      "confidence": 0.98,
+      "evidence": {
+        "quantity": 2
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m3",
+      "target_id": "m3",
+      "confidence": 0.98,
+      "evidence": {
+        "name_equivalent": true
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m4",
+      "target_id": "m4",
+      "confidence": 0.98,
+      "evidence": {
+        "name_equivalent": true
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m5",
+      "target_id": "m5",
+      "confidence": 0.98,
+      "evidence": {
+        "name_equivalent": true
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m6",
+      "target_id": "m6",
+      "confidence": 0.98,
+      "evidence": {
+        "name_equivalent": true
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m7",
+      "target_id": "m7",
+      "confidence": 0.99,
+      "evidence": {
+        "name": "Air Compressor"
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m8",
+      "target_id": "m8",
+      "confidence": 0.99,
+      "evidence": {
+        "name": "Air Compressor"
+      }
+    },
+    {
+      "category": "machine_details",
+      "gt_id": "m9",
+      "target_id": "m9",
+      "confidence": 0.99,
+      "evidence": {
+        "name": "수변전설비"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_1#1",
+      "target_id": "cg_re_1#1",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2012-08-20",
+        "creditor": "중소기업은행"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_1#2",
+      "target_id": "cg_re_1#2",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2012-09-20",
+        "creditor": "중소기업은행"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_1#3",
+      "target_id": "cg_re_1#3",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2012-09-20",
+        "maximum_claim": 5040000000
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_1#4",
+      "target_id": "cg_re_1#4",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2012-12-20"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_1#5",
+      "target_id": "cg_re_1#5",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2017-09-26"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_1#6",
+      "target_id": "cg_re_1#6",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2018-08-16",
+        "maximum_claim": 216000000
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_2#1",
+      "target_id": "cg_re_2#1",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2014-01-10"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_2#2",
+      "target_id": "cg_re_2#2",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2014-01-10"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_2#3",
+      "target_id": "cg_re_2#3",
+      "confidence": 0.99,
+      "evidence": {
+        "maximum_claim": 5040000000
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_2#4",
+      "target_id": "cg_re_2#4",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2014-01-10"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_2#5",
+      "target_id": "cg_re_2#5",
+      "confidence": 0.99,
+      "evidence": {
+        "date": "2018-08-16"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_re_2#6",
+      "target_id": "cg_re_2#6",
+      "confidence": 0.99,
+      "evidence": {
+        "maximum_claim": 216000000
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_m_1#1",
+      "target_id": "cg_mc_1#1",
+      "confidence": 0.98,
+      "evidence": {
+        "machine_group_equivalent": true,
+        "list": "제2012-399호"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_m_1#2",
+      "target_id": "cg_mc_1#2",
+      "confidence": 0.98,
+      "evidence": {
+        "machine_group_equivalent": true,
+        "list": "제2012-514호"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_m_1#3",
+      "target_id": "cg_mc_1#3",
+      "confidence": 0.98,
+      "evidence": {
+        "machine_group_equivalent": true,
+        "list": "제2012-515호",
+        "maximum_claim": 5040000000
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_m_1#4",
+      "target_id": "cg_mc_1#4",
+      "confidence": 0.98,
+      "evidence": {
+        "machine_group_equivalent": true,
+        "list": "제2012-720호"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_m_1#5",
+      "target_id": "cg_mc_1#5",
+      "confidence": 0.98,
+      "evidence": {
+        "machine_group_equivalent": true,
+        "list": "제2017-309호"
+      }
+    },
+    {
+      "category": "lien_relations",
+      "gt_id": "cg_m_1#6",
+      "target_id": "cg_mc_1#6",
+      "confidence": 0.98,
+      "evidence": {
+        "machine_group_equivalent": true,
+        "list": "제2018-234호",
+        "maximum_claim": 216000000
+      }
+    }
+  ],
+  "derived_values": [],
+  "llm_judgements": [
+    {
+      "topic": "address_set_equivalence",
+      "judgement": "GT 건물 주소 '12 외 5필지'와 Target의 '12, 13-3, 13-4, 14-2, 18, 22'는 같은 6필지 집합을 상세화한 표현으로 보아 동치 처리했다."
+    },
+    {
+      "topic": "building_label_variation",
+      "judgement": "GT '제비동호'와 Target '제비이동호'는 같은 건물군 표기의 미세 차이로 보아 감점하지 않았다."
+    },
+    {
+      "topic": "machine_name_spacing",
+      "judgement": "'Over head Crane' vs 'Over Head Crane', '경남HC' vs '경남 HC'는 동일 기계명/제조사 표기 변형으로 match 처리했다."
+    },
+    {
+      "topic": "unit_price_object_form",
+      "judgement": "unit_price가 숫자 대신 {value, derived} 객체인 경우 value 동일하고 amount/quantity 관계가 타당하여 match 처리했다."
+    }
+  ],
+  "metadata": {
+    "gt_path": "GT/담보물배분표GT.json",
+    "target_path": "target_domain.json",
+    "gt_format": "json",
+    "model": "gpt-5.4",
+    "llm_required": true,
+    "table_structure_first": true,
+    "scoring_engine": "gpt_5_4_table_aware_semantic_evaluator"
+  }
+}

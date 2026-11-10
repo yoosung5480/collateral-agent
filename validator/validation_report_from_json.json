@@ -1,0 +1,111 @@
+{
+  "score": 12.0,
+  "category_scores": {
+    "collateral_structure": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8,
+      "matched_credit": 2.0,
+      "target_total": 3.0,
+      "gt_total": 2.0,
+      "rationale": "collateral_groups의 group_id와 group_type, properties는 일치하나, valuation과 description은 GT에 없으므로 partial로 평가됨."
+    },
+    "lien_relations": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "matched_credit": 0.0,
+      "target_total": 0.0,
+      "gt_total": 0.0,
+      "rationale": "liens는 GT와 Target 모두 비어있어 평가할 수 없음."
+    },
+    "financial_values": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "matched_credit": 0.0,
+      "target_total": 0.0,
+      "gt_total": 0.0,
+      "rationale": "financial_values는 GT와 Target 모두 비어있어 평가할 수 없음."
+    },
+    "property_details": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "matched_credit": 0.0,
+      "target_total": 0.0,
+      "gt_total": 0.0,
+      "rationale": "property_details는 GT와 Target 모두 비어있어 평가할 수 없음."
+    },
+    "machine_details": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "matched_credit": 0.0,
+      "target_total": 0.0,
+      "gt_total": 0.0,
+      "rationale": "machine_details는 GT와 Target 모두 비어있어 평가할 수 없음."
+    },
+    "list_memberships": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "matched_credit": 0.0,
+      "target_total": 0.0,
+      "gt_total": 0.0,
+      "rationale": "list_memberships는 GT와 Target 모두 비어있어 평가할 수 없음."
+    }
+  },
+  "counts": {
+    "match": 2,
+    "partial": 1,
+    "contradiction": 0,
+    "missing": 0,
+    "extra": 0,
+    "unknown": 0
+  },
+  "errors": [
+    {
+      "category": "collateral_structure",
+      "object": "collateral_groups",
+      "field": "valuation",
+      "gt": null,
+      "target": 5681855200,
+      "status": "partial",
+      "credit": 0.5,
+      "reason": "GT에는 valuation이 없으나 Target에 존재하여 partial로 평가됨.",
+      "root_cause_id": null
+    },
+    {
+      "category": "collateral_structure",
+      "object": "collateral_groups",
+      "field": "description",
+      "gt": null,
+      "target": "부동산 담보물 배분표",
+      "status": "partial",
+      "credit": 0.5,
+      "reason": "GT에는 description이 없으나 Target에 존재하여 partial로 평가됨.",
+      "root_cause_id": null
+    }
+  ],
+  "object_matches": [
+    {
+      "category": "collateral_groups",
+      "gt_id": "group_1",
+      "target_id": "group_1",
+      "confidence": 0.9,
+      "evidence": {}
+    }
+  ],
+  "derived_values": [],
+  "llm_judgements": [],
+  "metadata": {
+    "gt_path": "GT/담보물배분표GT.json",
+    "target_path": "우리시스템/휴먼중공업 담보물배분표.xlsx",
+    "gt_format": "json",
+    "model": "gpt-4o-mini",
+    "llm_required": true,
+    "created_at": "2026-08-04T05:32:28.974903+00:00",
+    "scoring_engine": "llm_structured_domain_semantic_evaluator"
+  }
+}

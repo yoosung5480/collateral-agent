@@ -1,0 +1,12 @@
+{
+  "weights": {
+    "collateral_structure": 0.15,
+    "lien_relations": 0.20,
+    "financial_values": 0.20,
+    "property_details": 0.15,
+    "machine_details": 0.15,
+    "list_memberships": 0.15
+  },
+  "gt_blank_membership": "not_included",
+  "llm_cache_path": ".omx/llm_judgement_cache.json"
+}

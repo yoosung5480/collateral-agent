@@ -1,0 +1,1644 @@
+{
+  "schema_version": "1.0",
+  "collateral_groups": [
+    {
+      "group_id": "cg_re_1",
+      "group_type": "real_estate",
+      "properties": [
+        "prop_re1_land_1",
+        "prop_re1_bld_1",
+        "prop_re1_bld_2"
+      ],
+      "valuation": 5681855200,
+      "description": "부동산 담보물 배분표 #1 별도 담보군. 토지 1필지와 건물 2개동으로 구성. 주소 표기는 원문 보존: 토지는 '경상남도 합천군 철서면 계내리 12', 건물은 '경상남도 함안군 칠서면 계내리 12, 13-3, 13-4, 14-2, 18, 22 제에이동호/제비이동호 [도로명주소] 경상남도 함안군 칠서면 계룡로 110'. 가치평가 세부에는 토지/건물 위치 표기 불일치(합천군↔함안군, 12↔12,21-1)가 있으나 원문 그대로 보존.",
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "부동산 담보물 배분표 #1 source_rows 4-15, 가치평가액 5,681,855,200원"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_2",
+      "group_type": "real_estate",
+      "properties": [
+        "prop_re2_land_1"
+      ],
+      "valuation": 145500000,
+      "description": "부동산 담보물 배분표 #2 별도 담보군. 토지 1필지.",
+      "source_refs": [
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 19,
+          "column": null,
+          "text": "부동산 담보물 배분표 #2 source_rows 19-30, 가치평가액 145,500,000원"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_mc_1",
+      "group_type": "machine",
+      "properties": [],
+      "valuation": 179890000,
+      "description": "기계기구 담보물 배분표 별도 담보군. 담보물 내역상 기계기구 10식, 관련 목록은 제2012-399/2012-514/2012-515/2012-720/2017-309/2018-234호.",
+      "source_refs": [
+        {
+          "sheet": "machine_collateral_1",
+          "cell": null,
+          "row": 36,
+          "column": null,
+          "text": "기계기구 담보물 배분표 source_rows 36-48, 가치평가액 179,890,000원"
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop_re1_land_1",
+      "property_type": "land",
+      "address": {
+        "province": "경상남도",
+        "city_county": "합천군",
+        "town": "철서면",
+        "village": "계내리",
+        "lot_number": "12"
+      },
+      "land_category": "공장용지",
+      "area_m2": 10934.0,
+      "building_structure": null,
+      "usage": null,
+      "description": "원문 토지 소재지 및 내역: '경상남도 합천군 철서면 계내리 12 / 공장용지 10934㎡'. 가치평가 세부에는 '토지: 경상남도 함안군 칠서면 계내리 12 / 3,610,761,000원'으로 행정구역이 다르게 기재되어 있어 원문 불일치 보존.",
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "담보물 소재지 <토지> 경상남도 합천군 철서면 계내리 12"
+        },
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "담보물 내역 <토지> 1. 경상남도 합천군 철서면 계내리 12 - 공장용지 10934㎡"
+        },
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "가치평가액 세부: 토지 경상남도 함안군 칠서면 계내리 12 / 3,610,761,000원"
+        }
+      ]
+    },
+    {
+      "property_id": "prop_re1_bld_1",
+      "property_type": "building",
+      "address": {
+        "province": "경상남도",
+        "city_county": "함안군",
+        "town": "칠서면",
+        "village": "계내리",
+        "lot_number": "12, 13-3, 13-4, 14-2, 18, 22"
+      },
+      "land_category": null,
+      "area_m2": 2206.89,
+      "building_structure": "일반철골구조 판넬지붕 단층, 부속건물 철근콘크리트구조 (철근)콘크리트지붕 4층",
+      "usage": "공장, 휴게실, 식당, 사무실, 기숙사",
+      "description": "건물 1. '경상남도 함안군 칠서면 계내리 12, 13-3, 13-4, 14-2, 18, 22 제에이동호 [도로명주소] 경상남도 함안군 칠서면 계룡로 110'. 면적은 공장 1367.3㎡ + 부속건물 1층 225㎡ + 2층 208.5㎡ + 3층 208.5㎡ + 4층 197.59㎡ 합계 2206.89㎡로 계산. 필지집합 raw 표현 보존.",
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "건물 1 소재지: ... 제에이동호 [도로명주소] 경상남도 함안군 칠서면 계룡로 110"
+        },
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "건물 1 내역: 일반철골구조 판넬지붕 단층 공장 1367.3㎡, 부속건물 철근콘크리트구조 (철근)콘크리트지붕 4층 휴게실, 식당, 사무실, 기숙사 1층 225㎡, 2층 208.5㎡, 3층 208.5㎡, 4층 197.59㎡"
+        },
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "가치평가액 세부: 건물 경상남도 함안군 칠서면 계내리 [도로명] 경상남도 함안군 칠서면 계룡로 110 12, 13-3, 13-4, 14-2, 18, 22 위 지상 / 2,058,134,200원"
+        }
+      ]
+    },
+    {
+      "property_id": "prop_re1_bld_2",
+      "property_type": "building",
+      "address": {
+        "province": "경상남도",
+        "city_county": "함안군",
+        "town": "칠서면",
+        "village": "계내리",
+        "lot_number": "12, 13-3, 13-4, 14-2, 18, 22"
+      },
+      "land_category": null,
+      "area_m2": 1472.3,
+      "building_structure": "일반철골구조 판넬지붕 2층",
+      "usage": "공장",
+      "description": "건물 2. '경상남도 함안군 칠서면 계내리 12, 13-3, 13-4, 14-2, 18, 22 제비이동호 [도로명주소] 경상남도 함안군 칠서면 계룡로 110'. 면적은 1층 1,419.8㎡ + 2층 52.5㎡ = 1,472.3㎡. 가치평가 세부에는 별도로 '건물: 경상남도 함안군 칠서면 계내리 12, 21-1 위 지상 / 12,960,000원' 문구가 있어 같은 집합 후보인지 불명확하므로 원문 불일치 보존.",
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "건물 2 소재지: ... 제비이동호 [도로명주소] 경상남도 함안군 칠서면 계룡로 110"
+        },
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "건물 2 내역: 일반철골구조 판넬지붕 2층 공장 / 1층 1,419.8㎡ / 2층 52.5㎡"
+        },
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "가치평가액 세부: 건물 경상남도 함안군 칠서면 계내리 12, 21-1 위 지상 / 12,960,000원"
+        }
+      ]
+    },
+    {
+      "property_id": "prop_re2_land_1",
+      "property_type": "land",
+      "address": {
+        "province": "경상남도",
+        "city_county": "함안군",
+        "town": "칠서면",
+        "village": "계내리",
+        "lot_number": "21-1"
+      },
+      "land_category": "공장용지",
+      "area_m2": 93.0,
+      "building_structure": null,
+      "usage": null,
+      "description": "원문 토지 소재지 및 내역: '경상남도 함안군 칠서면 계내리 21-1 / 공장용지 93㎡'.",
+      "source_refs": [
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 19,
+          "column": null,
+          "text": "담보물 소재지 <토지> 경상남도 함안군 칠서면 계내리 21-1"
+        },
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 19,
+          "column": null,
+          "text": "담보물 내역 <토지> 공장용지 93㎡ / 가치평가액 145,500,000원"
+        }
+      ]
+    }
+  ],
+  "liens": [
+    {
+      "group_id": "cg_re_1",
+      "rank": 1,
+      "registration_date": "2012-08-20",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 4,
+          "column": null,
+          "text": "순위 1 / 설정일자 2012-08-20 / 채권자 중소기업은행 / 공담"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_1",
+      "rank": 2,
+      "registration_date": "2012-09-20",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 5,
+          "column": null,
+          "text": "순위 2 / 설정일자 2012-09-20 / 채권자 중소기업은행 / 공담"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_1",
+      "rank": 3,
+      "registration_date": "2012-09-20",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": 5040000000,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 6,
+          "column": null,
+          "text": "순위 3 / 설정일자 2012-09-20 / 채권자 중소기업은행 / 설정금액_1 5,040,000,000 / 설정금액_2 600,000,000"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_1",
+      "rank": 4,
+      "registration_date": "2012-12-20",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 7,
+          "column": null,
+          "text": "순위 4 / 설정일자 2012-12-20 / 채권자 중소기업은행 / 공담"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_1",
+      "rank": 5,
+      "registration_date": "2017-09-26",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 8,
+          "column": null,
+          "text": "순위 5 / 설정일자 2017-09-26 / 채권자 중소기업은행 / 공담"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_1",
+      "rank": 6,
+      "registration_date": "2018-08-16",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": 216000000,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_1",
+          "cell": null,
+          "row": 9,
+          "column": null,
+          "text": "순위 6 / 설정일자 2018-08-16 / 채권자 중소기업은행 / 설정금액_1 216,000,000 / 설정금액_2 120,000,000"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_2",
+      "rank": 1,
+      "registration_date": "2014-01-10",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 19,
+          "column": null,
+          "text": "순위 1 / 설정일자 2014-01-10 / 채권자 중소기업은행 / 공담"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_2",
+      "rank": 2,
+      "registration_date": "2014-01-10",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 20,
+          "column": null,
+          "text": "순위 2 / 설정일자 2014-01-10 / 채권자 중소기업은행 / 공담"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_2",
+      "rank": 3,
+      "registration_date": "2014-01-10",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": 5040000000,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 21,
+          "column": null,
+          "text": "순위 3 / 설정일자 2014-01-10 / 채권자 중소기업은행 / 설정금액_1 5,040,000,000 / 설정금액_2 600,000,000"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_2",
+      "rank": 4,
+      "registration_date": "2014-01-10",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 22,
+          "column": null,
+          "text": "순위 4 / 설정일자 2014-01-10 / 채권자 중소기업은행 / 공담"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_2",
+      "rank": 5,
+      "registration_date": "2018-08-16",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 23,
+          "column": null,
+          "text": "순위 5 / 설정일자 2018-08-16 / 채권자 중소기업은행 / 공담"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_re_2",
+      "rank": 6,
+      "registration_date": "2018-08-16",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": 216000000,
+      "joint_collateral": [
+        "공담"
+      ],
+      "source_refs": [
+        {
+          "sheet": "real_estate_2",
+          "cell": null,
+          "row": 24,
+          "column": null,
+          "text": "순위 6 / 설정일자 2018-08-16 / 채권자 중소기업은행 / 설정금액_1 216,000,000 / 설정금액_2 120,000,000"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_mc_1",
+      "rank": 1,
+      "registration_date": "2012-08-20",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담",
+        "제2012-399호"
+      ],
+      "source_refs": [
+        {
+          "sheet": "machine_collateral_1",
+          "cell": null,
+          "row": 36,
+          "column": null,
+          "text": "순위 1 / 설정일자 2012-08-20 / 채권자 중소기업은행 / 목록 제2012-399호"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_mc_1",
+      "rank": 2,
+      "registration_date": "2012-09-20",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담",
+        "제2012-514호"
+      ],
+      "source_refs": [
+        {
+          "sheet": "machine_collateral_1",
+          "cell": null,
+          "row": 37,
+          "column": null,
+          "text": "순위 2 / 설정일자 2012-09-20 / 채권자 중소기업은행 / 목록 제2012-514호"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_mc_1",
+      "rank": 3,
+      "registration_date": "2012-09-20",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": 5040000000,
+      "joint_collateral": [
+        "공담",
+        "제2012-515호"
+      ],
+      "source_refs": [
+        {
+          "sheet": "machine_collateral_1",
+          "cell": null,
+          "row": 38,
+          "column": null,
+          "text": "순위 3 / 설정일자 2012-09-20 / 채권자 중소기업은행 / 목록 제2012-515호 / 설정금액_1 5,040,000,000 / 설정금액_2 600,000,000"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_mc_1",
+      "rank": 4,
+      "registration_date": "2012-12-20",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담",
+        "제2012-720호"
+      ],
+      "source_refs": [
+        {
+          "sheet": "machine_collateral_1",
+          "cell": null,
+          "row": 39,
+          "column": null,
+          "text": "순위 4 / 설정일자 2012-12-20 / 채권자 중소기업은행 / 목록 제2012-720호"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_mc_1",
+      "rank": 5,
+      "registration_date": "2017-09-26",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": null,
+      "joint_collateral": [
+        "공담",
+        "제2017-309호"
+      ],
+      "source_refs": [
+        {
+          "sheet": "machine_collateral_1",
+          "cell": null,
+          "row": 40,
+          "column": null,
+          "text": "순위 5 / 설정일자 2017-09-26 / 채권자 중소기업은행 / 목록 제2017-309호"
+        }
+      ]
+    },
+    {
+      "group_id": "cg_mc_1",
+      "rank": 6,
+      "registration_date": "2018-08-16",
+      "creditor": "중소기업은행",
+      "debtor": null,
+      "maximum_claim": 216000000,
+      "joint_collateral": [
+        "공담",
+        "제2018-234호"
+      ],
+      "source_refs": [
+        {
+          "sheet": "machine_collateral_1",
+          "cell": null,
+          "row": 41,
+          "column": null,
+          "text": "순위 6 / 설정일자 2018-08-16 / 채권자 중소기업은행 / 목록 제2018-234호 / 설정금액_1 216,000,000 / 설정금액_2 120,000,000"
+        }
+      ]
+    }
+  ],
+  "machines": [
+    {
+      "machine_id": "m1",
+      "serial_no": null,
+      "name": "Over Head Crane",
+      "maker": "경남 HC",
+      "manufactured_date": "2012.08",
+      "specification": null,
+      "quantity": 1,
+      "unit_price": {
+        "value": 17570000,
+        "derived": true,
+        "derivation": "amount / quantity"
+      },
+      "amount": 17570000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 51,
+          "column": null,
+          "text": "1 | Over Head Crane | 경남 HC | 2012.08 | 수량 1 | 금액 17,570,000"
+        }
+      ]
+    },
+    {
+      "machine_id": "m2",
+      "serial_no": null,
+      "name": "Over Head Crane",
+      "maker": "경남 HC",
+      "manufactured_date": "2012.08",
+      "specification": null,
+      "quantity": 2,
+      "unit_price": 17570000,
+      "amount": 35140000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 52,
+          "column": null,
+          "text": "2 | Over Head Crane | 경남 HC | 2012.08 | 수량 2 | 단가 17,570,000 | 금액 35,140,000"
+        }
+      ]
+    },
+    {
+      "machine_id": "m3",
+      "serial_no": null,
+      "name": "Over Head Crane",
+      "maker": "경남 HC",
+      "manufactured_date": "2012.08",
+      "specification": null,
+      "quantity": 1,
+      "unit_price": {
+        "value": 17570000,
+        "derived": true,
+        "derivation": "amount / quantity"
+      },
+      "amount": 17570000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 53,
+          "column": null,
+          "text": "3 | Over Head Crane | 경남 HC | 2012.08 | 수량 1 | 금액 17,570,000"
+        }
+      ]
+    },
+    {
+      "machine_id": "m4",
+      "serial_no": null,
+      "name": "Over Head Crane",
+      "maker": "경남 HC",
+      "manufactured_date": "2012.08",
+      "specification": null,
+      "quantity": 1,
+      "unit_price": {
+        "value": 17570000,
+        "derived": true,
+        "derivation": "amount / quantity"
+      },
+      "amount": 17570000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 54,
+          "column": null,
+          "text": "4 | Over Head Crane | 경남 HC | 2012.08 | 수량 1 | 금액 17,570,000"
+        }
+      ]
+    },
+    {
+      "machine_id": "m5",
+      "serial_no": null,
+      "name": "Over Head Crane",
+      "maker": "경남 HC",
+      "manufactured_date": "2012.08",
+      "specification": null,
+      "quantity": 1,
+      "unit_price": {
+        "value": 17570000,
+        "derived": true,
+        "derivation": "amount / quantity"
+      },
+      "amount": 17570000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 55,
+          "column": null,
+          "text": "5 | Over Head Crane | 경남 HC | 2012.08 | 수량 1 | 금액 17,570,000"
+        }
+      ]
+    },
+    {
+      "machine_id": "m6",
+      "serial_no": null,
+      "name": "Over Head Crane",
+      "maker": "경남 HC",
+      "manufactured_date": "2012.08",
+      "specification": null,
+      "quantity": 1,
+      "unit_price": {
+        "value": 17570000,
+        "derived": true,
+        "derivation": "amount / quantity"
+      },
+      "amount": 17570000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 56,
+          "column": null,
+          "text": "6 | Over Head Crane | 경남 HC | 2012.08 | 수량 1 | 금액 17,570,000"
+        }
+      ]
+    },
+    {
+      "machine_id": "m7",
+      "serial_no": null,
+      "name": "Air Compressor",
+      "maker": "Atlas Copco",
+      "manufactured_date": "2012.06",
+      "specification": null,
+      "quantity": 1,
+      "unit_price": {
+        "value": 10880000,
+        "derived": true,
+        "derivation": "amount / quantity"
+      },
+      "amount": 10880000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 57,
+          "column": null,
+          "text": "7 | Air Compressor | Atlas Copco | 2012.06 | 수량 1 | 금액 10,880,000"
+        }
+      ]
+    },
+    {
+      "machine_id": "m8",
+      "serial_no": null,
+      "name": "Air Compressor",
+      "maker": "Atlas Copco",
+      "manufactured_date": "2012.06",
+      "specification": null,
+      "quantity": 1,
+      "unit_price": {
+        "value": 10880000,
+        "derived": true,
+        "derivation": "amount / quantity"
+      },
+      "amount": 10880000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 58,
+          "column": null,
+          "text": "8 | Air Compressor | Atlas Copco | 2012.06 | 수량 1 | 금액 10,880,000"
+        }
+      ]
+    },
+    {
+      "machine_id": "m9",
+      "serial_no": null,
+      "name": "수변전설비",
+      "maker": "한영전기",
+      "manufactured_date": "2012.08",
+      "specification": null,
+      "quantity": 1,
+      "unit_price": {
+        "value": 35140000,
+        "derived": true,
+        "derivation": "amount / quantity"
+      },
+      "amount": 35140000,
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 59,
+          "column": null,
+          "text": "9 | 수변전설비 | 한영전기 | 2012.08 | 수량 1 | 금액 35,140,000"
+        }
+      ]
+    }
+  ],
+  "list_memberships": [
+    {
+      "machine_id": "m1",
+      "list_no": "제2012-399호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 51,
+          "column": null,
+          "text": "제2012-399호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m1",
+      "list_no": "제2012-514호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 51,
+          "column": null,
+          "text": "제2012-514호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m1",
+      "list_no": "제2012-515호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 51,
+          "column": null,
+          "text": "제2012-515호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m1",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 51,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m1",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 51,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m1",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 51,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m2",
+      "list_no": "제2012-399호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 52,
+          "column": null,
+          "text": "제2012-399호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m2",
+      "list_no": "제2012-514호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 52,
+          "column": null,
+          "text": "제2012-514호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m2",
+      "list_no": "제2012-515호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 52,
+          "column": null,
+          "text": "제2012-515호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m2",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 52,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m2",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 52,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m2",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 52,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m3",
+      "list_no": "제2012-399호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 53,
+          "column": null,
+          "text": "제2012-399호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m3",
+      "list_no": "제2012-514호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 53,
+          "column": null,
+          "text": "제2012-514호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m3",
+      "list_no": "제2012-515호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 53,
+          "column": null,
+          "text": "제2012-515호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m3",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 53,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m3",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 53,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m3",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 53,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m4",
+      "list_no": "제2012-399호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 54,
+          "column": null,
+          "text": "제2012-399호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m4",
+      "list_no": "제2012-514호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 54,
+          "column": null,
+          "text": "제2012-514호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m4",
+      "list_no": "제2012-515호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 54,
+          "column": null,
+          "text": "제2012-515호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m4",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 54,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m4",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 54,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m4",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 54,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m5",
+      "list_no": "제2012-399호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 55,
+          "column": null,
+          "text": "제2012-399호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m5",
+      "list_no": "제2012-514호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 55,
+          "column": null,
+          "text": "제2012-514호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m5",
+      "list_no": "제2012-515호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 55,
+          "column": null,
+          "text": "제2012-515호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m5",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 55,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m5",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 55,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m5",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 55,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m6",
+      "list_no": "제2012-399호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 56,
+          "column": null,
+          "text": "제2012-399호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m6",
+      "list_no": "제2012-514호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 56,
+          "column": null,
+          "text": "제2012-514호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m6",
+      "list_no": "제2012-515호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 56,
+          "column": null,
+          "text": "제2012-515호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m6",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 56,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m6",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 56,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m6",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 56,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m7",
+      "list_no": "제2012-399호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 57,
+          "column": null,
+          "text": "제2012-399호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m7",
+      "list_no": "제2012-514호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 57,
+          "column": null,
+          "text": "제2012-514호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m7",
+      "list_no": "제2012-515호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 57,
+          "column": null,
+          "text": "제2012-515호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m7",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 57,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m7",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 57,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m7",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 57,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m8",
+      "list_no": "제2012-399호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 58,
+          "column": null,
+          "text": "제2012-399호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m8",
+      "list_no": "제2012-514호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 58,
+          "column": null,
+          "text": "제2012-514호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m8",
+      "list_no": "제2012-515호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 58,
+          "column": null,
+          "text": "제2012-515호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m8",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 58,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m8",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 58,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m8",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 58,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m9",
+      "list_no": "제2012-399호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 59,
+          "column": null,
+          "text": "제2012-399호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m9",
+      "list_no": "제2012-514호",
+      "state": "not_included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 59,
+          "column": null,
+          "text": "제2012-514호 X"
+        }
+      ]
+    },
+    {
+      "machine_id": "m9",
+      "list_no": "제2012-515호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 59,
+          "column": null,
+          "text": "제2012-515호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m9",
+      "list_no": "제2012-720호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 59,
+          "column": null,
+          "text": "제2012-720호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m9",
+      "list_no": "제2017-309호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 59,
+          "column": null,
+          "text": "제2017-309호 O"
+        }
+      ]
+    },
+    {
+      "machine_id": "m9",
+      "list_no": "제2018-234호",
+      "state": "included",
+      "source_refs": [
+        {
+          "sheet": "machine_register_1",
+          "cell": null,
+          "row": 59,
+          "column": null,
+          "text": "제2018-234호 O"
+        }
+      ]
+    }
+  ],
+  "document_tables": [
+    {
+      "table_id": "real_estate_1",
+      "table_type": "real_estate_collateral",
+      "title": "부동산 담보물 배분표 #1",
+      "summary": "토지 1필지(합천군 철서면 계내리 12)와 건물 2개동(함안군 칠서면 계내리 12,13-3,13-4,14-2,18,22 제에이동호/제비이동호), 가치평가액 5,681,855,200원, 근저당권 순위 1~6.",
+      "collateral_group_ids": [
+        "cg_re_1"
+      ],
+      "property_ids": [
+        "prop_re1_land_1",
+        "prop_re1_bld_1",
+        "prop_re1_bld_2"
+      ],
+      "lien_keys": [
+        "cg_re_1#1",
+        "cg_re_1#2",
+        "cg_re_1#3",
+        "cg_re_1#4",
+        "cg_re_1#5",
+        "cg_re_1#6"
+      ],
+      "machine_ids": [],
+      "membership_count": 0
+    },
+    {
+      "table_id": "real_estate_2",
+      "table_type": "real_estate_collateral",
+      "title": "부동산 담보물 배분표 #2",
+      "summary": "토지 1필지(함안군 칠서면 계내리 21-1), 공장용지 93㎡, 가치평가액 145,500,000원, 근저당권 순위 1~6.",
+      "collateral_group_ids": [
+        "cg_re_2"
+      ],
+      "property_ids": [
+        "prop_re2_land_1"
+      ],
+      "lien_keys": [
+        "cg_re_2#1",
+        "cg_re_2#2",
+        "cg_re_2#3",
+        "cg_re_2#4",
+        "cg_re_2#5",
+        "cg_re_2#6"
+      ],
+      "machine_ids": [],
+      "membership_count": 0
+    },
+    {
+      "table_id": "machine_collateral_1",
+      "table_type": "machine_collateral",
+      "title": "기계기구 담보물 배분표",
+      "summary": "기계기구 10식, 가치평가액 179,890,000원, 관련 목록 제2012-399/514/515/720/2017-309/2018-234호, 근저당권 순위 1~6.",
+      "collateral_group_ids": [
+        "cg_mc_1"
+      ],
+      "property_ids": [],
+      "lien_keys": [
+        "cg_mc_1#1",
+        "cg_mc_1#2",
+        "cg_mc_1#3",
+        "cg_mc_1#4",
+        "cg_mc_1#5",
+        "cg_mc_1#6"
+      ],
+      "machine_ids": [],
+      "membership_count": 0
+    },
+    {
+      "table_id": "machine_register_1",
+      "table_type": "machine_register",
+      "title": "기계기구 대조표",
+      "summary": "일련번호별 기계 9행과 각 목록 제2012-399/514/515/720/2017-309/2018-234호 포함 여부를 제시. 공란 정책은 GT 공란 not_included이나 본 표 데이터행은 O/X로 제시됨.",
+      "collateral_group_ids": [],
+      "property_ids": [],
+      "lien_keys": [],
+      "machine_ids": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6",
+        "m7",
+        "m8",
+        "m9"
+      ],
+      "membership_count": 54
+    }
+  ],
+  "notes": [
+    "GT 공란 목록관계 정책 not_included가 주어졌으나, 본 machine_register 데이터행의 포함 여부는 모두 O/X로 기재되어 별도 공란 보정은 적용하지 않음.",
+    "근저당권 행의 배분내역 블록에는 설정자/중소기업은행/순위 참조가 반복되나 구조 스키마상 핵심 담보권 정보는 순위, 설정일자, 채권자, 설정금액 중심으로 반영.",
+    "일부 순위 행에는 두 개의 설정금액 열(예: 5,040,000,000과 600,000,000 / 216,000,000과 120,000,000 / 250,000,000과 360,000,000)이 있으나 본 스키마의 lien.maximum_claim은 단일 값이므로 첫 번째 설정금액을 maximum_claim에 반영하고 나머지 금액은 source_refs에 보존."
+  ]
+}
